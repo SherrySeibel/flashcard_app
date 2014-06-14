@@ -8,15 +8,15 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Deck < ActiveRecord::Base
-  has_many :cards 
+  has_many :cards
 end
 
-class Card < ActiveRecord::Base 
+class Card < ActiveRecord::Base
 end
 
 get "/" do
   @decks = Deck.all
-  erb :index 
+  erb :index
 end
 
 get "/decks/new" do
@@ -27,5 +27,19 @@ get "/decks/:id" do
   @deck = Deck.find(params[:id])
   @cards = @deck.cards
 
-  erb :show   
+  erb :show
+end
+
+patch "/decks/:id" do
+  @deck = Deck.find(params[:id])
+  @deck.topic = params[:deck][:topic]
+  @deck.save
+
+  redirect "/decks/#{params[:id]}"
+end
+
+post "/decks" do
+  @deck = Deck.create(topic: params[:deck][:topic])
+
+  redirect "/decks/#{@deck.id}"
 end

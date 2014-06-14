@@ -3,16 +3,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Teach Yourself! </title>
+    <title>Teach Yourself!</title>
   </head>
   <body>
   <h1>Pick a deck of flashcards to learn something</h1>
   <h2>Flashcard decks: </h2>
   <p><a href="/decks/new">Create a new deck</p>
-  <ul>
+    <ol>
       <% @decks.each do |deck| %>
         <li><a href="/decks/<%= deck.id %>"><%= deck.topic %></a></li>
       <% end %>
-    </ul>
+    </ol>
   </body>
 </html>
