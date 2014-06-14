@@ -24,5 +24,7 @@ end
 
 get "/decks/:id" do
   @deck = Deck.find(params[:id])
-  @cards = 
+  @cards = @deck.cards
+
+  erb :show   
 end

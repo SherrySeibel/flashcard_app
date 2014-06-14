@@ -10,7 +10,7 @@
   <h2>Flashcard decks: </h2>
     <ul>
       <% @decks.each do |deck| %>
-        <li><a href="/deck/<%= deck.id %>"><%= deck.topic %></a></li>
+        <li><a href="/decks/<%= deck.id %>"><%= deck.topic %></a></li>
       <% end %>
     </ul>
   </body>

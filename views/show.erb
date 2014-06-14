@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @deck.topic %> </title>
+  </head>
+  <body>
+  <h1>Flashcards for <%= @deck.topic %></h1>
+  <ol><% @cards.each do |card| %>
+    <li><a href="/cards/<% card.id %>"><%= card.question %></a> <li>
+  <% end %>
+  </ol>
+  </body>
+</html>
