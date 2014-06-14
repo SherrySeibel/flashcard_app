@@ -1,15 +1,16 @@
 require "sinatra"
-# require "active_record"
-# require "pg"
-#
-# ActiveRecord::Base.estabish_connection(
-#   adapter: "postgres"
-#   database: "flashcards"
-# )
-#
-# class Flashcard < ActiveRecord::BASE
-# end
+require "active_record"
+require "pg"
+
+ActiveRecord::Base.establish_connection(
+  adapter: "postgresql",
+  database: "flashcards"
+)
+
+class Deck < ActiveRecord::Base
+end
 
 get "/" do
-  "Hello Avi!"
+  @decks = Deck.all
+  erb :index 
 end

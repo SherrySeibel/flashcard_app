@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Teach Yourself! </title>
+  </head>
+  <body>
+  <h1>Pick a deck of flashcards to learn something</h1>
+  <h2>Flashcard decks: </h2>
+    <ul>
+      <% @decks.each do |deck| %>
+        <li><a href="/flashcards/<%= deck.id %>"><%= deck.topic %></a></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
